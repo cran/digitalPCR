@@ -1,0 +1,10 @@
+0ef68e70c87d1be567db76c54ec9ce17 *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+a8b32d6245316ba2646df4e1a13e6183 *R/TL.R
+19b9e8039140208b8d940f31869f1e47 *R/bootstrapping.R
+2c7d6477ce644d8e0f01ebcb867a4c36 *R/digitalPCR.R
+9779fb75501b621b0ab6349394ab8f18 *R/likelihood.R
+d4eb2f49401a379741db895a8889b173 *R/maximum.likelihood.R
+4d3fb3fd01fb3077b8036d938f8e5c99 *R/poisson.param.R
+da4789d4a34c911e962879e18323a80a *man/digitalPCR-internal.Rd
+b08d4f463fa59eb87af1b8cd80e5008b *man/digitalPCR.Rd
