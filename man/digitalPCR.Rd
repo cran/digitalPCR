@@ -8,15 +8,15 @@ of positive and total reaction wells. The output is the estimated assay sensitiv
 and the copy number per well in the initial dilute.
 }
 \usage{
-digitalPCR(pos, n, dilution, Nboot, single.copy = c("FALSE", "TRUE"))
+digitalPCR(pos, neg, dilution, Nboot, single.copy = c("FALSE", "TRUE"), upper.copy=100)
 }
 
 \arguments{
   \item{pos}{
  a numeric vector of number of positive reactions in the order of dilutions
 }
-  \item{n}{
- a number or a numeric vector of number of total reactions in the order of dilutions
+  \item{neg}{
+ a numeric vector of number of negative reactions in the order of dilutions
 }
   \item{dilution}{
  a numeric vector of folds of dilutions relative to the initial dilution
@@ -27,9 +27,12 @@ digitalPCR(pos, n, dilution, Nboot, single.copy = c("FALSE", "TRUE"))
   \item{single.copy}{
  character tells whether the assay is assumed single-copy sensitive. default "FALSE"
 }
+  \item{upper.copy}{
+ the upper bound of copy number in highest concentration
+}
 }
 \details{
-The total number n can be a vector or a number which will be recycled. If the assay is assumed single-copy sensitive, single.copy can be set to "TRUE". If the assay contains 3 dilutions at 1, 2, and 4 fold relative to initial concentrate, set dilution=c(1,2,4)
+the pos, neg and dilution vector must be in the same order from high to low concentrations.
 }
 \value{
 The returned value is a list of four components:
@@ -46,11 +49,11 @@ The returned value is a list of four components:
 #dilution at 1,2,4,8 fold
 pos=c(221,97,39,14)
 dilution=c(1,2,4,8)
-n=384
+neg=384-pos
 #note in practice, set this 100 or larger
 Nboot=10 
 
-result1=digitalPCR(pos, n, dilution,  Nboot)
+result1=digitalPCR(pos, neg, dilution,  Nboot)
 print (paste(result1$"mean copy number", result1$"sd copy number"))
 hist(result1$"thresholds",xlim=c(-2,10))
 

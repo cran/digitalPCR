@@ -1,5 +1,7 @@
 likelihood <-
 function(po, ne, lamda, thres)
 {
-return (log(1-ppois(thres-1, lamda))*po+log(ppois(thres-1, lamda))*ne) 
+pneg=stats::ppois(thres-1, lamda)
+ppos=1-pneg
+return (log(ppos)*po+log(pneg)*ne) 
 }
